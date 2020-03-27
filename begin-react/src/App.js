@@ -18,7 +18,7 @@ function App() {
       <header style={style}>
         {name}의 러닝 리액트
       </header>
-      <Hello name={name} color="red"/>
+      <Hello name={name} color="red" isSpecial />
       <Hello color="pink"/>
       <div className="gray-box">gray box</div>
     </Wrapper>
