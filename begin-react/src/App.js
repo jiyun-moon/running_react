@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 import Hello from './hello'
 import Wrapper from './wrapper';
+import Counter from './counter';
+import InputSample from './InputSample';
 
 function App() {
   const name = "jiyun moon";
@@ -19,8 +21,8 @@ function App() {
         {name}의 러닝 리액트
       </header>
       <Hello name={name} color="red" isSpecial />
-      <Hello color="pink"/>
-      <div className="gray-box">gray box</div>
+      <Counter />
+      <InputSample />
     </Wrapper>
   );
 }
