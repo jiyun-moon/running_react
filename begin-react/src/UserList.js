@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-function User({ user, onRemove, onToggle }) {
+const User = React.memo(function User({ user, onRemove, onToggle }) {
+  useEffect(() => {
+    console.log('컴포넌트가 화면에 나타남');
+    console.log(user);
+    return () => {
+      console.log('컴포넌트가 화면에서 사라짐');
+      console.log(user);
+    }
+  }, [user]);
   return (
     <div>
       <b
@@ -10,11 +18,13 @@ function User({ user, onRemove, onToggle }) {
         }}
         onClick={() => onToggle(user.id)}
       >
-        {user.username}</b> <span>({user.email})</span>
+        {user.username}
+      </b>
+      <span>({user.email})</span>
       <button onClick={() => onRemove(user.id)}>삭제</button>
     </div>
   );
-}
+});
 
 function UserList({users, onRemove, onToggle}) {
 
@@ -27,4 +37,4 @@ function UserList({users, onRemove, onToggle}) {
   );
 }
 
-export default UserList;
+export default React.memo(UserList);
